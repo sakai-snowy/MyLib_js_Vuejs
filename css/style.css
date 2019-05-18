@@ -1,0 +1,15 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background: #c352c5;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: moveX;
+  }
+
+
+@keyframes moveX {
+    from { margin-left: 0px; } /*はじめの値*/
+    to { margin-left: 300px; } /*動いたあとの値*/
+  }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 各学習項目の切り替えをわかりやすくするため設定 */
+        div{
+            padding: 10px 0;
+            border-bottom: 1px solid black;
+        }
+
+        /* 仕様確認 */
+        .alert{
+            background-color: #fcc;
+            padding: 10px;
+            border: 1px solid #f33;
+        }
+
+
+    </style>
+    <title>Vue.js_sandpage02</title>
+</head>
+<body>
+    <!-- 6.compnet -->
+    <div id="app">
+        <alert-box>○○が入力されていません</alert-box>
+        <alert-box>××が入力されていません</alert-box>
+    </div>
+
+
+    
+    <!-- vue_CDN(デバックツールを使用できるようversion指定) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <!-- lodash_CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+
+    <!-- vue_script -->
+    <script>
+        // 6.compnet
+        Vue.component('alert-box',{
+            template:`
+            <div class="alert" v-on:click="caution">
+                <strong>Error!</strong>
+                <slot></slot>
+            </div>
+            `,
+            methods: {
+                caution: function(){
+                    alert("クリックされました");
+                }
+            }
+        })
+
+        var app = new Vue({
+           el:"#app", 
+        })
+
+
+        // ここまで記載
+    </script>
+
+
+</body>
+</html>
